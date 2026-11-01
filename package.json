@@ -1,0 +1,8 @@
+{
+  "name":"persian-ai-rtl",
+  "version":"1.3.1",
+  "private":true,
+  "description":"Persian RTL typography for AI websites",
+  "scripts":{"test":"node scripts/test.cjs","package":"node scripts/package.cjs"},
+  "devDependencies":{"playwright":"1.56.1","fflate":"0.8.2"}
+}

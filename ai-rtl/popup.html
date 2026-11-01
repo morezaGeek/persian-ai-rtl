@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>AI RTL</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1 dir="ltr">AI RTL</h1>
+    <label class="switch"><input type="checkbox" id="enabled" aria-label="فعال بودن افزونه"><span></span></label>
+  </header>
+
+  <section class="site">
+    <div class="host" id="host">—</div>
+    <div class="status" id="status"></div>
+    <button id="toggleSite">…</button>
+  </section>
+
+  <section class="font-size" aria-labelledby="fontSizeTitle">
+    <div class="size-heading">
+      <label for="fontSize" id="fontSizeTitle">اندازهٔ متن این سایت</label>
+      <output id="fontSizeValue" for="fontSize" dir="ltr">100%</output>
+    </div>
+    <input type="range" id="fontSize" min="60" max="200" step="5" value="100" dir="ltr">
+    <div class="size-footer">
+      <span>فقط برای همین سایت ذخیره می‌شود.</span>
+      <button type="button" id="resetFontSize" class="reset">بازنشانی</button>
+    </div>
+  </section>
+
+  <section class="fonts" aria-labelledby="fontsTitle">
+    <h2 id="fontsTitle">انتخاب فونت</h2>
+    <div class="font-row">
+      <label for="persianFont">فارسی</label>
+      <select id="persianFont" aria-describedby="fontsHint">
+        <option value="vazirmatn">وزیرمتن</option>
+        <option value="tahoma">Tahoma</option>
+        <option value="arial">Arial</option>
+        <option value="segoe-ui">Segoe UI</option>
+        <option value="system">پیش‌فرض سیستم</option>
+      </select>
+    </div>
+    <div class="font-row">
+      <label for="englishFont">انگلیسی</label>
+      <select id="englishFont" aria-describedby="fontsHint">
+        <option value="site">فونت خود سایت</option>
+        <option value="vazirmatn">وزیرمتن</option>
+        <option value="arial">Arial</option>
+        <option value="segoe-ui">Segoe UI</option>
+        <option value="georgia">Georgia</option>
+        <option value="times-new-roman">Times New Roman</option>
+      </select>
+    </div>
+    <p id="fontsHint">برای همهٔ سایت‌های فعال ذخیره می‌شود. به‌جز وزیرمتن، فونت‌ها باید روی سیستم نصب باشند.</p>
+  </section>
+
+  <section class="opts">
+    <input type="checkbox" id="latinToo" hidden aria-hidden="true" tabindex="-1">
+    <label class="row"><span>اعمال روی همه‌ی سایت‌ها</span>
+      <span class="switch"><input type="checkbox" id="allSites"><span></span></span></label>
+  </section>
+
+  <p id="error" class="error" role="alert" hidden></p>
+  <p class="hint">متن فارسی راست‌چین می‌شود؛ چیدمان صفحه، ترتیب ستون‌های جدول و فونت کد حفظ می‌شود.</p>
+
+  <script src="hosts.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

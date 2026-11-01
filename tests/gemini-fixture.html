@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<meta charset="utf-8">
+<title>Gemini centered response and RTL list regression</title>
+<style>
+  body { margin:0; background:#101010; color:#ddd; font:17px/1.7 Arial,sans-serif; }
+  nav { position:fixed; inset:0 auto 0 0; width:64px; background:#191919; }
+  main { margin-left:64px; padding:32px 12px 150px; }
+  .markdown-main-panel > :is(p,h2,h3) { max-width:708px; margin-inline:auto; }
+  h2 { font-size:24px; margin-top:32px; }
+  h3 { font-size:20px; }
+  ul,ol { max-width:708px; box-sizing:border-box; margin:8px 0; }
+  li { position:relative; padding-inline-start:24.8px; }
+  li::before { content:'◦'; position:absolute; right:0; }
+  li p { margin:0 0 12px; }
+  .horizontal-scroll-wrapper { width:100%; overflow-x:auto; }
+  table { width:min(100%,708px); margin:auto; border-collapse:collapse; }
+  td { border-bottom:1px solid #444; padding:16px 8px; }
+  #composer { position:fixed; bottom:16px; left:calc(50% + 32px); transform:translateX(-50%); width:min(708px,calc(100% - 100px)); display:flex; gap:16px; padding:16px; border-radius:32px; box-sizing:border-box; background:#232323; }
+  #composer span { flex:1; }
+  /* Exact conflicting declarations observed on the user's Gemini tab. */
+  :is([data-test-id="luminous-collapsed-bubble"], [id^="model-response-message-content"], [id^="model-user-message-content"]) :is(ul, ol)[dir="rtl"] {
+    direction:rtl!important; text-align:right!important; list-style:none!important;
+    margin-inline:0!important; margin-left:0!important; margin-right:0!important;
+    padding-inline:0!important; padding-left:0!important; padding-right:0!important;
+  }
+</style>
+<nav id="sidebar">✦</nav>
+<main>
+  <div class="markdown markdown-main-panel md-content" id="model-response-message-content-test" dir="rtl">
+    <p id="intro" dir="rtl">تفاوت اصلی سرویس‌ها در اولویت طراحی آن‌هاست؛ متن و جدول باید در ستون پاسخ قرار بگیرند.</p>
+    <h2>مقایسه ویژگی‌ها</h2>
+    <div class="horizontal-scroll-wrapper"><table id="comparison"><tr><td>ویژگی</td><td>NordVPN</td><td>Windscribe</td></tr><tr><td>اتصال همزمان</td><td>ده دستگاه</td><td>نامحدود</td></tr></table></div>
+    <h2>تفاوت‌های کلیدی در جزئیات فنی</h2>
+    <h3 id="list-heading">۱. عملکرد و وضعیت اتصال</h3>
+    <ul id="response-list" dir="rtl" style="direction:rtl;text-align:right;unicode-bidi:isolate">
+      <li dir="rtl"><p dir="rtl"><b>Windscribe:</b> توضیحات فارسی درباره‌ی اتصال و امکانات سرویس. این پاراگراف باید درست زیر عنوان و در همان ستون بماند و به کناره‌ی صفحه منتقل نشود.</p></li>
+      <li dir="rtl"><p dir="rtl"><b>NordVPN:</b> توضیحات فارسی درباره‌ی سرویس دوم با عبارت انگلیسی WireGuard و پاسخ طولانی برای بررسی شکستن خط در محدوده‌ی ستون متن.</p><ul id="sublist" dir="rtl"><li dir="rtl">زیرلیست فارسی باید تورفتگی خودش را نگه دارد.</li></ul></li>
+    </ul>
+    <h3 id="numbered-heading">۲. راه‌اندازی</h3>
+    <ol id="numbered-list" dir="rtl"><li dir="rtl"><p>افزونه را به‌روزرسانی کنید.</p></li><li dir="rtl"><p>صفحه جمنای را دوباره بارگذاری کنید.</p></li></ol>
+  </div>
+</main>
+<div id="composer"><b>＋</b><span>Ask Gemini</span><b>◉</b></div>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<meta charset="utf-8">
+<title>AI RTL layout regression fixture</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #ddd; background: #101010; font: 17px/1.8 Arial, sans-serif; }
+  #app { display: flex; min-height: 100vh; }
+  aside { flex: 0 0 170px; padding: 24px; background: #191919; }
+  main { width: min(800px, calc(100% - 40px)); margin: 24px auto 150px; padding: 20px; }
+  .row { display: flex; align-items: start; gap: 18px; }
+  .avatar { width: 30px; flex: 0 0 30px; }
+  .message { min-width: 0; flex: 1; }
+  .toolbar { display: flex; justify-content: space-between; gap: 18px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  button, textarea, input, [contenteditable] { color: inherit; background: #262626; border: 1px solid #666; border-radius: 8px; padding: 8px; }
+  h2 { font-size: 22px; text-align: center; }
+  p { text-align: left; }
+  ul, ol { padding-left: 32px; padding-right: 0; }
+  code, pre { font: inherit; background: #242424; }
+  pre { padding: 12px; white-space: pre-wrap; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 8px; border: 1px solid #555; text-align: left; }
+  .katex { font-family: 'Times New Roman'; }
+  .katex .math { font-family: cursive; }
+  #composer { position: fixed; bottom: 12px; left: 25%; width: 65%; display: flex; gap: 12px; }
+  textarea { resize: none; flex: 1; min-width: 0; }
+  #editor { margin-top: 12px; min-height: 44px; }
+  #inline-icon { font-family: Symbol; }
+</style>
+<div id="app">
+  <aside id="sidebar"><div>Chats</div><button id="nav-button">گفت‌وگوی جدید</button></aside>
+  <main id="main">
+    <div id="toolbar" class="toolbar">پاسخ هوش مصنوعی<button id="pdf">Convert chat to PDF</button></div>
+    <div class="row" id="message-row">
+      <div class="avatar" id="avatar">◉</div>
+      <div class="message" id="message">
+        <h2 id="heading">کدام گزینه برای چه سناریویی مناسب‌تر است؟</h2>
+        <p id="mixed" dir="auto" style="text-align:left!important;--vzx-fb:Georgia!important">NordVPN: این سرویس برای متن فارسی و اتصال امن مناسب است.</p>
+        <p id="english">An English paragraph should keep the website's original font and direction.</p>
+        <ol id="steps">
+          <li id="step1">زیپ را باز کن.</li>
+          <li id="step2">در کروم برو به <code id="url">chrome://extensions</code> و Developer mode را روشن کن.</li>
+          <li id="step3"><p>Load unpacked را انتخاب کن و پوشه‌ی <code>ai-rtl</code> را باز کن.</p></li>
+        </ol>
+        <ul id="mixed-list"><li id="persian-item">Windscribe: توضیحات فارسی برای این گزینه.</li><li id="english-item">English instructions.</li></ul>
+        <ul id="nested-list"><li>توضیحات فارسی<ul id="nested-english"><li>Nested English item</li></ul></li></ul>
+        <p id="important-direction" style="direction:ltr!important">NordVPN: جهت متن فارسی با استایل صریح سایت</p>
+        <div id="interactive-text">متن فارسی کنار دکمه <button id="inline-button" style="display:inline-flex"><span>A</span><span>B</span></button></div>
+        <p id="inline">متن فارسی با کد <code id="inline-code">const value = 'سلام';</code> و فرمول <span class="katex" id="formula"><span class="math" id="math">x + y = 2</span></span> و <span id="inline-icon" aria-hidden="true">↗</span>.</p>
+        <pre id="code-block"><code>const message = 'سلام';
+console.log(message);</code></pre>
+        <p id="code-only"><code>فقط کد فارسی</code></p>
+        <table id="table"><tr><th id="col1">نام سرویس</th><th id="col2">قیمت</th></tr><tr><td id="cell1">سرویس اول</td><td>Free</td></tr></table>
+        <div id="grid" class="grid"><div id="grid1">ستون نخست</div><div id="grid2">ستون دوم</div></div>
+        <p id="stream">Loading…</p>
+        <div id="editor" contenteditable="true" dir="auto"></div>
+        <div class="monaco-editor" id="code-editor"><div contenteditable="true">ویرایشگر کد</div></div>
+      </div>
+    </div>
+  </main>
+</div>
+<div id="composer"><textarea id="input" dir="auto" placeholder="Message"></textarea><button id="send">➤</button></div>
+</html>

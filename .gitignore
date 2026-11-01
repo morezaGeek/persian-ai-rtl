@@ -1,0 +1,10 @@
+node_modules/
+test-results/
+dist/
+*.zip
+*.rar
+*.log
+.env*
+!*.example
+private/
+.DS_Store

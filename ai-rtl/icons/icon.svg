@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>RTL</title>
+  <rect width="128" height="128" rx="24" fill="#4f46e5"/>
+  <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M15 92V36h15a16 16 0 0 1 0 32H15m14 0 16 24"/>
+    <path d="M54 36h28M68 36v56"/>
+    <path d="M96 36v56h19"/>
+  </g>
+</svg>
